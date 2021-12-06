@@ -139,7 +139,7 @@ Complete Documentaion can be found [here](Project_Documentation.pdf).
 
 # References
 
-Digital Visual Interface – [http://www.ddwg.org](http://www.ddwg.org)
+[Digital Visual Interface Specification](dvi_spec-V1_0.pdf)
 
 VGA Text Generator-
 https://ece320web.groups.et.byu.net/labs/VGATextGeneration/VGA_Terminal.html
