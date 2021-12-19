@@ -62,6 +62,10 @@ The encoder produces four unique 10-bit characters during blanking and one of 46
 
 ![alt text](tmds_encoding.png "TMDS Encoding Algorithm Flowchart from Digital Visual Interface Specification")
 
+# Serialisation
+
+The stream of TMDS characters produced by the encoder is serialized for transmission on the TMDS data channel. The least significant bit of each character (q<sub>out</sub>[0]) is the first bit to be transmitted.
+
 # Character Display
 
 **Font ROM**: The appearance of the characters on the screen is determined by a "font ROM". The font
