@@ -50,6 +50,8 @@ pixel clock is chosen as serial clock frequency along with DDR (double data rate
 
 # TMDS Encoding Algorithm
 
+The encoder produces four unique 10-bit characters during blanking and one of 460 unique 10-bit characters during active data. Use of all other 10-bit characters over the link is reserved.
+
 | Parameter        | Description           |
 | ------------- |:-------------:| 
 | D, C0, C1, DE | Input data set. D is eight-bit pixel data, C1 and C0 are the control data for the channel, and DE is data enable |
@@ -58,7 +60,7 @@ pixel clock is chosen as serial clock frequency along with DDR (double data rate
 | N_1(x) | Number of set bits in **x**  |
 | N_0(x) | Number of unset bits in **x**   |
 
-
+![alt text](tmds_encoding.png "TMDS Encoding Algorithm Flowchart from Digital Visual Interface Specification")
 
 # Character Display
 
@@ -157,8 +159,6 @@ FFs = 690
 
 20 x 6 Text Displaying hex characters was implemented using Zybo board HDMI Output printing
 characters on screen taking input from Pmod Keypad.
-
-Complete Documentaion can be found [here](Project_Documentation.pdf).
 
 # References
 
