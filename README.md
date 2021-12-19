@@ -48,6 +48,18 @@ Each pixel has 24 bits of data which is encoded into 30 bits of data. This is se
 channels. So, serial clock should be able to support 10 times data rate and pixel clock. So, 5 times the
 pixel clock is chosen as serial clock frequency along with DDR (double data rate).
 
+# TMDS Encoding Algorithm
+
+| Parameter        | Description           |
+| ------------- |:-------------:| 
+| D, C0, C1, DE | Input data set. D is eight-bit pixel data, C1 and C0 are the control data for the channel, and DE is data enable |
+| cnt     | Represents the data steam disparity &alpha; - &beta; where &alpha; = number of set bits and &beta; = number of unset bits. **cnt(t)** indicates the disparity after **t** pixels have been transmitted      |
+| q<sub>out</sub> | Encoded output value      |
+| N_1(x) | Number of set bits in **x**  |
+| N_0(x) | Number of unset bits in **x**   |
+
+
+
 # Character Display
 
 **Font ROM**: The appearance of the characters on the screen is determined by a "font ROM". The font
