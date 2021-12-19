@@ -17,23 +17,21 @@ Reset button resets the screen. Clear button clears the sreen.
 # Timing Requirements
 
 For 800 x 480 screen,
-For Hsync,
-Tfp = 40 clock cycles ;
-Tpw = 48 clock cycles ;
+For H_{sync},
+T_{fp} = 40 clock cycles ;
+T_{pw} = 48 clock cycles ;
+T_{disp} = 800 clock cycles;
+T_{bp} = 40 clock cycles;
+=> T_s = T_{fp} + T_{pw} + T_{disp} + T_{bp} = 928 clock cycles;
 
+For V_{sync},
+T_{fp} = (13 x T_{s,H_{sync}}) clock cycles = (13 x 928) clock cycles;
+T_{pw} = (3 x T_{s,H_{sync}}) clock cycles = (3 x 928) clock cycles;
+T_{disp} = (400 x T_{s,H_{sync}}) clock cycles = (400 x 928) clock cycles;
+T_{bp} = (29 x T_{s,H_{sync}}) clock cycles = (29 x 928) clock cycles;
+= > T_s = T_{fp} + T_{pw} + T_{disp} + T_{bp} = (525 * T_{s,H_{sync}}) clock cycles = (525 x 928) clock cycles;
 
-Ts = 928 clock cycles;
-Tdisp = 800 clock cycles;
-Tbp= 40 clock cycles;
-
-For Vsync,
-Tfp = (13 * 928) clock cycles ;
-Tpw = (3 * 928) clock cycles ;
-Ts = (525 * 928) clock cycles;
-Tdisp = (400 *928) clock cycles;
-Tbp= (29 *928) clock cycles;
-
-At refresh rate of 60 Hz, clock cycles required is 928x525x60 = 29232000;
+At refresh rate of 60 Hz, number of clock cycles required is 928 x 525 x 60 = 29232000;
 So, pixel clock is set to 30 Mhz.
 Each pixel has 24 bits of data which is encoded into 30 bits of data. This is serialised to 3 different
 channels. So, serial clock should be able to support 10 times data rate and pixel clock. So, 5 times the
