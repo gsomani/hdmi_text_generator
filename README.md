@@ -17,19 +17,30 @@ Reset button resets the screen. Clear button clears the sreen.
 # Timing Requirements
 
 For 800 x 480 screen,
+
 For H<sub>sync</sub>,
-T<sub>fp</sub> = 40 clock cycles ;
-T<sub>pw</sub> = 48 clock cycles ;
-T<sub>disp</sub> = 800 clock cycles;
-T<sub>bp</sub> = 40 clock cycles;
-=> T_s = T<sub>fp</sub> + T<sub>pw</sub> + T<sub>disp</sub> + T<sub>bp</sub> = 928 clock cycles;
+
+T<sub>fp</sub> = 40 clock cycles
+
+T<sub>pw</sub> = 48 clock cycles 
+
+T<sub>disp</sub> = 800 clock cycles
+
+T<sub>bp</sub> = 40 clock cycles
+
+=> T<sub>s</sub> = T<sub>fp</sub> + T<sub>pw</sub> + T<sub>disp</sub> + T<sub>bp</sub> = 928 clock cycles
 
 For V<sub>sync</sub>,
-T<sub>fp</sub> = (13 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (13 x 928) clock cycles;
-T<sub>pw</sub> = (3 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (3 x 928) clock cycles;
-T<sub>disp</sub> = (400 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (400 x 928) clock cycles;
-T<sub>bp</sub> = (29 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (29 x 928) clock cycles;
-= > T_s = T<sub>fp</sub> + T<sub>pw</sub> + T<sub>disp</sub> + T<sub>bp</sub> = (525 * T<sub>s,H<sub>sync</sub></sub>) clock cycles = (525 x 928) clock cycles;
+
+T<sub>fp</sub> = (13 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (13 x 928) clock cycles
+
+T<sub>pw</sub> = (3 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (3 x 928) clock cycles
+
+T<sub>disp</sub> = (400 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (400 x 928) clock cycles
+
+T<sub>bp</sub> = (29 x T<sub>s,H<sub>sync</sub></sub>) clock cycles = (29 x 928) clock cycles
+
+=> T<sub>s</sub> = T<sub>fp</sub> + T<sub>pw</sub> + T<sub>disp</sub> + T<sub>bp</sub> = (525 * T<sub>s,H<sub>sync</sub></sub>) clock cycles = (525 x 928) clock cycles
 
 At refresh rate of 60 Hz, number of clock cycles required is 928 x 525 x 60 = 29232000;
 So, pixel clock is set to 30 Mhz.
@@ -37,7 +48,9 @@ Each pixel has 24 bits of data which is encoded into 30 bits of data. This is se
 channels. So, serial clock should be able to support 10 times data rate and pixel clock. So, 5 times the
 pixel clock is chosen as serial clock frequency along with DDR (double data rate).
 
-Font ROM: The appearance of the characters on the screen is determined by a "font ROM". The font
+# Character Display
+
+**Font ROM**: The appearance of the characters on the screen is determined by a "font ROM". The font
 ROM contains the pattern of pixels that should be displayed on the screen when a particular character
 needs to be displayed. The bits within the font ROM indicate which pixels of a 8 x 16 bit tile should be
 displayed in the 'foreground' and which pixels on the display should be displayed in the background. A
@@ -66,7 +79,7 @@ the upper-case character 'A':
 "00000000", -- e
 "00000000", -- f
 ```
-Character Memory: In addition to the font ROM, we use a "character memory" that stores the
+**Character Memory**: In addition to the font ROM, we use a "character memory" that stores the
 character value at each of the 20x6 character locations on the display. The minimum size of this
 memory is 20x6x4 bits to provide enough room to store characters (one nibble each) for each of the 20
 columns and 6 rows.
